@@ -63,3 +63,52 @@ You can search globally for `TODO` to find the files you must edit to complete t
 
 Good Luck,
 Juan Mora
+
+
+## Set up
+
+Follow these steps to configure and run a Django project:
+1. Create and Activate a Virtual Environment
+
+A virtual environment allows you to isolate the project dependencies.
+
+    1. Open your terminal or command prompt.
+    2. Navigate to the directory where you want to create the virtual environment.
+    3. Run the following command to create the virtual environment:
+```bash
+    python -m venv env
+```
+    4. Activate the virtual environment:
+- On Windows
+```bash
+    .\env\Scripts\activate
+```
+- On macOS/Linux:
+```bash
+    source env/bin/activate
+```
+
+2. Install Dependencies
+Once the virtual environment is activated:
+
+    1. Make sure you are in the directory containing the requirements.txt file.
+    2. Run the following command to install the required dependencies:
+```bash
+    pip install -r requirements.txt
+```
+
+3. Run the Django Project
+To start Django’s development server:
+
+    1. Navigate to the directory containing the manage.py file.
+    2. Run the following command:
+```bash
+    python manage.py runserver
+```
+
+4. Access the Project in Your Browser
+
+Once the server is running, open the following URL in your web browser:
+```bash
+    http://127.0.0.1:8000/
+```
