@@ -7,7 +7,7 @@ import pytest
 from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APIClient
-from .models import Product, Order, OrderProduct
+from checkout.models import Product, Order, OrderProduct
 from decimal import Decimal
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "nimblestore.settings")
@@ -36,17 +36,20 @@ def dummy_failing():
     assert 1 == 2
 
 
+@pytest.mark.django_db
 def test_get_products(api_client, create_product):
     create_product(name="Test Product 1", price=10.00, quantity=100)
     create_product(name="Test Product 2", price=15.00, quantity=200)
 
-    url = reverse("product-list")  # Adjust this to your actual URL name
+    url = reverse("products")  # Adjust this to your actual URL name
     response = api_client.get(url)
 
     assert response.status_code == status.HTTP_200_OK
     assert len(response.data) == 2
 
 
+
+@pytest.mark.django_db
 def test_post_order(api_client, create_product):
     # Create test products
     product1 = create_product(name="Test Product 1", price=10.00, quantity=100)
@@ -59,7 +62,7 @@ def test_post_order(api_client, create_product):
     ]
 
     # Make POST request to create the order
-    url = reverse("order-list")  # Adjust this to your actual URL name
+    url = reverse("order")  # Adjust this to your actual URL name
     response = api_client.post(url, data=order_data, format='json')
 
     assert response.status_code == status.HTTP_201_CREATED

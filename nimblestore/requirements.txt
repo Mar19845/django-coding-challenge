@@ -1,5 +1,6 @@
 asgiref==3.7.2
 cfgv==3.4.0
+colorama==0.4.6
 distlib==0.3.8
 Django==5.0
 djangorestframework==3.14.0
@@ -13,9 +14,11 @@ platformdirs==4.2.2
 pluggy==1.5.0
 pre-commit==3.7.1
 pytest==8.2.2
+pytest-django==4.9.0
 pytz==2023.3.post1
 PyYAML==6.0.1
 sqlparse==0.4.4
 tomli==2.0.1
 typing_extensions==4.9.0
+tzdata==2024.2
 virtualenv==20.26.3
